@@ -9,8 +9,10 @@ export const router = new VueRouter({
 })
 router.beforeEach((to, from, next) => {
   let hasToken = store.state.token
-  if (hasToken) {
-    if (to == '/home') {
+  if (to.name == 'login') {
+    next()
+  } else if (hasToken) {
+    if (to.name == 'home') {
       next()
     }
   } else {

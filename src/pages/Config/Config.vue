@@ -70,12 +70,14 @@ export default {
     closePop(e) {
       this.pop = e
     },
-    async updateTableData() {
-      let res = await reqPullData()
-      if (res.status == 200) {
-        this.tableData = res.date
-        this.pop = false
-      }
+    updateTableData(data) {
+      this.tableData.push(data)
+      console.log(this.tableData)
+      // let res = await reqPullData()
+      // if (res.status == 200) {
+      //   this.tableData = res.date
+      //   this.pop = false
+      // }
     },
     //分页
     // pageChange(page) {
@@ -122,6 +124,7 @@ export default {
         type: 'warning'
       }).then(({ value }) => {
         this.tableData.splice(scoped.$index, 1);
+        //console.log(this.tableData)
         this.$message({
           type: 'success',
           message: scoped.row.name + ' 删除成功！'

@@ -128,7 +128,7 @@ export default {
     },
     handelConfirm() {
       let data = {
-        //name: this.formData.field101,
+        name: this.formData.field101,
         port: this.formData.field109,
         ip: this.formData.field117,
       }
@@ -137,23 +137,21 @@ export default {
       this.$refs['elForm'].validate(async (valid) => {
         if (!valid) return
         //这里应为post
-        let res = await reqAddRow(data)
+        // let res = await reqAddRow(data)
         // console.log(res)
-        if (res.status == 200) {
-          this.$emit('updateTable')
-          this.$message({
-            type: 'success',
-            message: '名称' + data.name + '添加成功！'
-          })
-          // this.close()
-        }
-        else {
-          this.$message({
-            type: 'info',
-            message: '添加失败'
-          });
-          this.close()
-        }
+        this.$emit('updateTable', data)
+        this.$message({
+          type: 'success',
+          message: '名称' + data.name + '添加成功！'
+        })
+        this.close()
+        // else {
+        //   this.$message({
+        //     type: 'info',
+        //     message: '添加失败'
+        //   });
+        //   this.close()
+        // }
 
       })
 

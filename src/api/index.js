@@ -13,11 +13,11 @@ export const reqModifyPassword = (data) => requests({
   method: 'post',
   data
 })
-export const reqAddRow = (data) => requests({
-  url: `/user/passport/logout`,
-  method: 'post',
-  data
-})
+// export const reqAddRow = (data) => requests({
+//   url: `/user/passport/logout`,
+//   method: 'post',
+//   data
+// })
 export const reqSubmitTable = (tableData) => requests({
   url: `/user/passport/logout`,
   method: 'post',
